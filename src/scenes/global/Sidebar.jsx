@@ -20,6 +20,7 @@ import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
   return (
     <MenuItem
       active={selected === title}
@@ -28,9 +29,10 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       }}
       onClick={() => setSelected(title)}
       icon={icon}
-      comment={<Link to={to} />}
     >
-      <Typography>{title}</Typography>
+      <Link to={to} style={{ textDecoration: "none", color: "inherit" }}>
+        <Typography>{title}</Typography>
+      </Link>
     </MenuItem>
   );
 };
